@@ -322,12 +322,13 @@ const BluetoothScreen: React.FC = () => {
 						ListHeaderComponent={renderHeader(`Du hast ${displayDevices.length} Keke aktiviert:`)}
 						ListHeaderComponentStyle={{ width: Dimensions.get('screen').width - 40 }}
 					/>
-					<View style={{ height: 100 }}>
+					<View style={{ height: 100, width: Dimensions.get('screen').width - 40 }}>
 						<WebView
 							source={{ uri: constants.WEBVIEW_FOOTER }}
 							bounces={false}
 							scalesPageToFit={false}
 							allowsLinkPreview={false}
+							javaScriptEnabled={false}
 							style={{ width: Dimensions.get('screen').width - 40, backgroundColor: 'white' }}
 							onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
 						/>

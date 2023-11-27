@@ -11,6 +11,7 @@ const LoginScreen: React.FC = () => {
   const navigation = useNavigation();
 
   const handleLogin = () => {
+    if (email == '' || pin == '') {return;}
     authService.login(email, pin).then(async res => {
       if (res.error == false) {
         await authService.saveToken(res.data)
