@@ -40,3 +40,22 @@ export const login = async (email: string, pin: string) => {
     return { error: true, data: "Server not accessable" };
   }
 }
+
+export const userCheck = async (code: string) => {
+  try {
+    console.log("Checking User Token");
+    const authLink = constants.LOGIN_URL + `?l=${code}`;
+    const res = await axios.get(authLink);
+    console.log("User Check Result");
+    console.log(res.data);
+    
+    
+    if (res.status == 200 && res.data != false) {
+      return { data: res.data, error: false };
+    } else { return { error: true, data: "Invalid Credentials Provided." }; }
+  } catch (error) {
+    console.error("auth_service:37: ");
+    console.error(error);
+    return { error: true, data: "Server not accessable" };
+  }
+}

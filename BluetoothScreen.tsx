@@ -190,10 +190,6 @@ const BluetoothScreen: React.FC = () => {
 			const url = constants.DEVICES + "?k=" + token;
 			const response = await axios.get<FetchedDevice[]>(url);
 			if (response && response.data) {
-				console.log("Devices ----");
-				console.log(response.data);
-				
-				
 				setDevices(response.data)
 				setMounted(true);
 			}
